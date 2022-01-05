@@ -55,6 +55,7 @@ export const makeVInputProps = propsFactory({
 
 export const VInput = genericComponent<new <T>() => {
   $slots: MakeSlots<{
+    control: []
     default: [VInputSlot]
     prepend: [VInputSlot]
     append: [VInputSlot]
@@ -148,6 +149,8 @@ export const VInput = genericComponent<new <T>() => {
           ) }
 
           <div class="v-input__control">
+            { slots.control?.() }
+
             { slots.default?.(slotProps.value) }
           </div>
 
